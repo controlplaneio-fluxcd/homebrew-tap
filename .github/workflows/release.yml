@@ -1,0 +1,43 @@
+name: Release
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 * * * *'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Find latest release
+        id: latest
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          latest_release=$(gh release list --repo controlplaneio-fluxcd/flux-operator --limit 1 | awk 'NR==1{print $1}')
+          latest_release=$(echo $latest_release | sed 's/^v//')
+          echo latest-release="${latest_release}" >> $GITHUB_OUTPUT
+      - name: Download checksums.txt
+        run: curl -fsLo checksums.txt "https://github.com/controlplaneio-fluxcd/flux-operator/releases/download/v${latest_release}/flux-operator_${latest_release}_checksums.txt"
+        env:
+          latest_release: ${{ steps.latest.outputs.latest-release }}
+      - name: Update formulas
+        run: ./hack/template.sh
+        env:
+          latest_release: ${{ steps.latest.outputs.latest-release }}
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
+        with:
+          token: ${{ github.token }}
+          commit-message: Release v${{ steps.latest.outputs.latest-release }}
+          committer: GitHub <noreply@github.com>
+          author: fluxcdbot <fluxcdbot@users.noreply.github.com>
+          signoff: true
+          branch: release
+          title: Release v${{ steps.latest.outputs.latest-release }}
+          body: Release v${{ steps.latest.outputs.latest-release }}
