@@ -5,20 +5,20 @@
 class FluxOperator < Formula
   desc "Flux Operator CLI"
   homepage "https://fluxcd.control-plane.io/operator/cli"
-  version "0.22.0"
+  version "0.23.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/controlplaneio-fluxcd/flux-operator/releases/download/v0.22.0/flux-operator_0.22.0_darwin_amd64.tar.gz"
-      sha256 "8574cc6102e86266c40dc9d628e5236bbc908a4af239d1b86462a0ba5fd0088f"
+      url "https://github.com/controlplaneio-fluxcd/flux-operator/releases/download/v0.23.0/flux-operator_0.23.0_darwin_amd64.tar.gz"
+      sha256 "d82feddf67c1f24d26707c83a3bb46656ce20d2ceeb462ca34f251e5a850e4d1"
 
       def install
         bin.install "flux-operator"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/controlplaneio-fluxcd/flux-operator/releases/download/v0.22.0/flux-operator_0.22.0_darwin_arm64.tar.gz"
-      sha256 "631594449cc7721bb0b6d0d3c902464c85644f7943eb810e1ac0b92d9a3c480b"
+      url "https://github.com/controlplaneio-fluxcd/flux-operator/releases/download/v0.23.0/flux-operator_0.23.0_darwin_arm64.tar.gz"
+      sha256 "4825f320a1272deab4f8d40157cd71d76ee29941436f36acf495ac316c75d339"
 
       def install
         bin.install "flux-operator"
@@ -29,8 +29,8 @@ class FluxOperator < Formula
   on_linux do
     if Hardware::CPU.intel?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/controlplaneio-fluxcd/flux-operator/releases/download/v0.22.0/flux-operator_0.22.0_linux_amd64.tar.gz"
-        sha256 "f0d346318f89fbe279c78db7a12bbc0bee58662a0f76c9db2d7be8b57a60a0ce"
+        url "https://github.com/controlplaneio-fluxcd/flux-operator/releases/download/v0.23.0/flux-operator_0.23.0_linux_amd64.tar.gz"
+        sha256 "de9bba9efbbcb64eb731348ab1753b1e3b607c99e538b8e1c6456428eed99a90"
 
         def install
           bin.install "flux-operator"
@@ -39,8 +39,8 @@ class FluxOperator < Formula
     end
     if Hardware::CPU.arm?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/controlplaneio-fluxcd/flux-operator/releases/download/v0.22.0/flux-operator_0.22.0_linux_arm64.tar.gz"
-        sha256 "6fec04b65ce772a076bf33f1c0d6cfc1b61290c6ff275b72d2e7d2a912c53bf6"
+        url "https://github.com/controlplaneio-fluxcd/flux-operator/releases/download/v0.23.0/flux-operator_0.23.0_linux_arm64.tar.gz"
+        sha256 "ca381325b8218d3a4f825fe4e17afbda450ae1afa661d93db71a55177e201ec0"
 
         def install
           bin.install "flux-operator"
