@@ -5,20 +5,20 @@
 class FluxOperatorMcp < Formula
   desc "Flux MCP Server"
   homepage "https://fluxcd.control-plane.io/mcp/"
-  version "0.41.0"
+  version "0.41.1"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/controlplaneio-fluxcd/flux-operator/releases/download/v0.41.0/flux-operator-mcp_0.41.0_darwin_amd64.tar.gz"
-      sha256 "24f47beb014344fc8242b6dc262ff53fa2ad6297265673b31ec1a94d98fbe510"
+      url "https://github.com/controlplaneio-fluxcd/flux-operator/releases/download/v0.41.1/flux-operator-mcp_0.41.1_darwin_amd64.tar.gz"
+      sha256 "41de001fb83a8f13d149a5095ad320c52aca7e6781f91929b64e6ec47a319560"
 
       def install
         bin.install "flux-operator-mcp"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/controlplaneio-fluxcd/flux-operator/releases/download/v0.41.0/flux-operator-mcp_0.41.0_darwin_arm64.tar.gz"
-      sha256 "cd7861b3156627ed2e5e13e5161f4beeb1d291823e0797d04d21f39bc4090cc6"
+      url "https://github.com/controlplaneio-fluxcd/flux-operator/releases/download/v0.41.1/flux-operator-mcp_0.41.1_darwin_arm64.tar.gz"
+      sha256 "dae7d7c97ed6ca8b882c2aeb32c94d753b8b1d477962e45e7c7b088dee707599"
 
       def install
         bin.install "flux-operator-mcp"
@@ -29,8 +29,8 @@ class FluxOperatorMcp < Formula
   on_linux do
     if Hardware::CPU.intel?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/controlplaneio-fluxcd/flux-operator/releases/download/v0.41.0/flux-operator-mcp_0.41.0_linux_amd64.tar.gz"
-        sha256 "b5f59fce53dcd4a6b7cea2e11e17d3ae24660fb67257e3990b52d369cc149a4f"
+        url "https://github.com/controlplaneio-fluxcd/flux-operator/releases/download/v0.41.1/flux-operator-mcp_0.41.1_linux_amd64.tar.gz"
+        sha256 "36d5c4cbdce7f779a672782e67de1d1dbde1c4c04c66a84b85830bcf72e72378"
 
         def install
           bin.install "flux-operator-mcp"
@@ -39,8 +39,8 @@ class FluxOperatorMcp < Formula
     end
     if Hardware::CPU.arm?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/controlplaneio-fluxcd/flux-operator/releases/download/v0.41.0/flux-operator-mcp_0.41.0_linux_arm64.tar.gz"
-        sha256 "0abd2bc3aaafb75345db0ed66b9d9b8f3ee286244d1228373660aa4643a542a6"
+        url "https://github.com/controlplaneio-fluxcd/flux-operator/releases/download/v0.41.1/flux-operator-mcp_0.41.1_linux_arm64.tar.gz"
+        sha256 "4cc2de1e84c3e72f34c8123d1c2de0e95445efa8e03af13dc04127377be76f9e"
 
         def install
           bin.install "flux-operator-mcp"
